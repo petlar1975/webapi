@@ -13,6 +13,8 @@ namespace Models.ExtendedModels {
         public DateTime CreatedDatetime { get; set; }
         public Guid UserId { get; set; }
         public string UserName { get; set; }
+        // todo this is basically all that seperates Book from BookExtended, 
+        // this should be added to Book and empty list equals Book while list with items equals BookExtended
         public IEnumerable<BookExtended> MoreUserBooks { get; set; }
     }
 }

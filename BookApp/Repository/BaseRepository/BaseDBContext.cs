@@ -19,11 +19,17 @@ namespace Repository.BaseRepository {
         #endregion
 
         #region Constructor
-        public BaseDBContext() {
+        public BaseDBContext() : base("OurLocalDB") // temporary hardcoded injection of connectionstring, to see something working faster
+        {
+            // Creating database if it doesnt exist
+            Database.SetInitializer<BaseDBContext>(new CreateDatabaseIfNotExists<BaseDBContext>());
+
         }
 
         public BaseDBContext(string connectionString)
            : base(connectionString) {
+            // Creating database if it doesnt exist
+            Database.SetInitializer<BaseDBContext>(new CreateDatabaseIfNotExists<BaseDBContext>());
         }
 
         #endregion
